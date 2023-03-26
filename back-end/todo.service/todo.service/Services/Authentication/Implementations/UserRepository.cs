@@ -17,17 +17,26 @@ namespace todo.service.Services.Authentication.Implementations
 
         public async Task<bool> AddUser(string username, string password)
         {
-            return await Task.FromResult(userRepo.Add(new User() { Username = username, Password = password }) != null);
+            return await Task.FromResult(userRepo.Add(new User() { Id = Guid.NewGuid(), Username = username, Password = password }) != null);
         }
 
-        public async Task<bool> Authenticate(string username, string password)
+        public Task<bool> Authenticate(string username, string password, out Guid userid)
         {
-            if (await Task.FromResult(this.userRepo.GetByUserName(username)?.Password == password))
+            var user = this.userRepo.GetByUserName(username);
+            if (user?.Password == password)
             {
-                return true;
+                userid = user.Id;
+                return Task.FromResult(true);
             }
-            return false;
+            userid = Guid.Empty;
+            return Task.FromResult(false);
         }
+
+        public Task<User> GetUser(Guid userId)
+        {
+            return Task.FromResult(this.userRepo.GetById(userId));
+        }
+
         public async Task<IEnumerable<string>> GetUserNames()
         {
             return await Task.FromResult(this.userRepo.GetAll().Select(u => u.Username));

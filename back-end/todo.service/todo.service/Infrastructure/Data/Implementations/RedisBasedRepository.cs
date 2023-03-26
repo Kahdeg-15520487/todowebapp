@@ -27,6 +27,11 @@ namespace todo.service.Infrastructure.Data.Implementations
             }
         }
 
+        public IEnumerable<T> Query(Func<T, bool> query)
+        {
+            return GetAll().Where(query);
+        }
+
         public T GetById(Guid id)
         {
             var key = $"{this.collection}:{id}";
@@ -39,8 +44,7 @@ namespace todo.service.Infrastructure.Data.Implementations
 
         public T Add(T entity)
         {
-            var id = Guid.NewGuid();
-            entity.Id = id;
+            var id = entity.Id;
             var key = $"{this.collection}:{id}";
             this.db.HashSet(key, ToHashEntries(entity));
             this.db.SetAdd(keyList, id.ToString());

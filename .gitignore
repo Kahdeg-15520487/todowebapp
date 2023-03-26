@@ -303,6 +303,28 @@ __pycache__/
 *.pyc
 
 # Cake - Uncomment if you are using it
+.DS_Store
+node_modules/
+/dist/
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
 # tools/**
 # !tools/packages.config
 
@@ -324,6 +346,7 @@ OpenCover/
 # Azure Stream Analytics local run output
 ASALocalRun/
 
+
 # MSBuild Binary and Structured Log
 *.binlog
 
@@ -338,3 +361,25 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+.DS_Store
+node_modules/
+/dist/
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*

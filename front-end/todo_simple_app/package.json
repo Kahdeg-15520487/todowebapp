@@ -1,0 +1,30 @@
+{
+  "name": "moz-todo-vue",
+  "version": "0.2.0",
+  "private": true,
+  "homepage": "https://mdn.github.io/todo-vue/",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@dafcoe/vue-collapsible-panel": "^0.2.0",
+    "core-js": "^3.28.0",
+    "lodash.uniqueid": "^4.0.1",
+    "pinia": "^2.0.33",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.19.1",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "eslint": "^8.34.0",
+    "eslint-plugin-vue": "^9.9.0",
+    "vue-template-compiler": "^2.7.14"
+  }
+}

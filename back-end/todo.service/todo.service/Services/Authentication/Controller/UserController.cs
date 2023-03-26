@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using todo.service.Services.Authentication.Data;
 using todo.service.Services.Authentication.DTOs;
 using todo.service.Services.Authentication.Interfaces;
 
@@ -18,9 +19,9 @@ namespace todo.service.Services.Authentication.Controller
         }
 
         [HttpGet]
-        public async Task<string> Get()
+        public async Task<UserInfoDto> Get()
         {
-            return HttpContext.User.FindFirst(ClaimTypes.Name).Value;
+            return await userService.GetUser(Guid.Parse(HttpContext.User.FindFirst(CustomClaim.UserId).Value));
         }
 
         [HttpPost]

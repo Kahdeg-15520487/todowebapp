@@ -5,6 +5,7 @@ using System.Text.Encodings.Web;
 using System.Text;
 using todo.service.Services.Authentication.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using todo.service.Services.Authentication.Data;
 
 namespace todo.service.Services.Authentication.Implementations
 {
@@ -39,9 +40,9 @@ namespace todo.service.Services.Authentication.Implementations
                 var token = authorizationHeader.Substring("Basic ".Length).Trim();
                 var credentialsAsEncodedString = Encoding.UTF8.GetString(Convert.FromBase64String(token));
                 var credentials = credentialsAsEncodedString.Split(':');
-                if (await _userRepository.Authenticate(credentials[0], credentials[1]))
+                if (await _userRepository.Authenticate(credentials[0], credentials[1], out Guid userId))
                 {
-                    var claims = new[] { new Claim(ClaimTypes.Name, credentials[0]), new Claim(ClaimTypes.Role, "User") };
+                    var claims = new[] { new Claim(ClaimTypes.Name, credentials[0]), new Claim(ClaimTypes.Role, "User"), new Claim(CustomClaim.UserId, userId.ToString()) };
                     var identity = new ClaimsIdentity(claims, "Basic");
                     var claimsPrincipal = new ClaimsPrincipal(identity);
                     return await Task.FromResult(AuthenticateResult.Success(new AuthenticationTicket(claimsPrincipal, Scheme.Name)));
