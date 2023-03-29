@@ -16,19 +16,17 @@
       class="input__lg" />
     <button type="submit" @click="onSubmit('login')" class="btn btn__primary btn__lg">Login</button>
     <button type="submit" @click="onSubmit('register')" class="btn btn__primary btn__lg">Register</button>
-    <Modal v-model="isVisible">
+    <div v-if="isVisible">
       <div>Register successful!<br/>Please login.</div>
-    </Modal>
+    </div>
   </form>
 </template>
 
 <script>
-import { Modal } from 'usemodal-vue3';
 import { userInfoStore } from '@/stores/userinfo.ts';
 
 export default {
   components: {
-    Modal
   },
   methods: {
     async onSubmit(action) {
@@ -42,6 +40,7 @@ export default {
       }
     },
     async register() {
+      this.isVisible = false;
       let res = await fetch(process.env.VUE_APP_API_URL + "/api/users", {
         method: 'POST',
         headers: {

@@ -40,10 +40,12 @@
 	- sample:
 		- https://learn.microsoft.com/en-us/samples/browse/?expanded=azure&products=azure-resource-manager  
 		- https://learn.microsoft.com/en-us/samples/azure/azure-quickstart-templates/webapp-windows-aspnet/  
-	- we use ARM template (either json or bicep) to encode our infrastructure as reproducible code
+	- we use ARM template (json) to encode our infrastructure as reproducible code
 - setup and integrate azure keyvault for configuration management
     - https://learn.microsoft.com/en-us/aspnet/core/security/key-vault-configuration?view=aspnetcore-7.0
     - https://learn.microsoft.com/en-us/azure/key-vault/general/tutorial-net-create-vault-azure-web-app
+    - https://learn.microsoft.com/en-us/azure/key-vault/general/vault-create-template?tabs=CLI
+    - https://learn.microsoft.com/en-us/azure/templates/microsoft.keyvault/vaults/accesspolicies?pivots=deployment-language-arm-template
 - updating back-end and front-end's configuration file
     - front-end
         - [.env.development](./front-end/todo.app/.env.development)

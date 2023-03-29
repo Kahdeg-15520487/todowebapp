@@ -16,7 +16,6 @@
     "core-js": "^3.28.0",
     "lodash.uniqueid": "^4.0.1",
     "pinia": "^2.0.33",
-    "usemodal-vue3": "^0.3.7",
     "vue": "^3.2.47"
   },
   "devDependencies": {

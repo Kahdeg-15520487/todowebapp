@@ -19,6 +19,10 @@ namespace todo.service.Services.Authentication.Implementations
 
         public async Task<User> AddUser(string username, string password)
         {
+            if (userRepo.GetByUserName(username) != null)
+            {
+                return null;
+            }
             return await Task.FromResult(userRepo.Add(new User() { Id = Guid.NewGuid(), Username = username, Password = password }));
         }
 
