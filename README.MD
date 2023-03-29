@@ -30,7 +30,7 @@
 	- https://learn.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs?view=azure-devops
 	- there are 2 way you can setup the cd pipeline:  
 		- classic GUI release pipeline  
-		- yaml pipeline (the same on used in CI)  
+		- yaml pipeline (the same one used in CI)  
 - create infrastructure for hosting the application with ARM template or some other IaC tech (terraform)
 	- https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview
 	- https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax
