@@ -105,10 +105,10 @@ namespace todo.service.Infrastructure.Data.Implementations
                 .ToArray();
         }
 
-        private static T ConvertFromRedis<T>(HashEntry[] hashEntries)
+        private static G ConvertFromRedis<G>(HashEntry[] hashEntries)
         {
-            PropertyInfo[] properties = typeof(T).GetProperties();
-            var obj = Activator.CreateInstance(typeof(T));
+            PropertyInfo[] properties = typeof(G).GetProperties();
+            var obj = Activator.CreateInstance(typeof(G));
             foreach (var property in properties)
             {
                 HashEntry entry = hashEntries.FirstOrDefault(g => g.Name.ToString().Equals(property.Name));
@@ -122,7 +122,7 @@ namespace todo.service.Infrastructure.Data.Implementations
                     property.SetValue(obj, Convert.ChangeType(Guid.Parse(entry.Value.ToString()), property.PropertyType));
                 }
             }
-            return (T)obj;
+            return (G)obj;
         }
     }
 }

@@ -20,9 +20,9 @@ namespace todo.service.Services.Authentication.Implementations
             return this.mapper.Map<UserInfoDto>(await this.userRepository.GetUser(userId));
         }
 
-        public Task<bool> RegisterUser(UserDto dto)
+        public async Task<UserInfoDto> RegisterUser(UserDto dto)
         {
-            return userRepository.AddUser(dto.Username, dto.Password);
+            return this.mapper.Map<UserInfoDto>(await userRepository.AddUser(dto.Username, dto.Password));
         }
     }
 }

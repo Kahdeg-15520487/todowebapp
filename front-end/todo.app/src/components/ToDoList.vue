@@ -7,7 +7,7 @@
             <li v-for="item in ToDoItems" :key="item.id">
                 <to-do-item :label="item.label" :done="item.done" :id="item.id"
                     @checkbox-changed="updateDoneStatus(item.id)" @item-deleted="deleteToDo(item.id)"
-                    @item-edited="editToDo(item.id, $event)">
+                    @item-edited1="editToDo(item.id, $event)">
                 </to-do-item>
             </li>
         </ul>

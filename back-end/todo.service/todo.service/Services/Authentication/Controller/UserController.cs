@@ -26,7 +26,7 @@ namespace todo.service.Services.Authentication.Controller
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<bool> RegisterUser([FromBody] UserDto userDto)
+        public async Task<UserInfoDto> RegisterUser([FromBody] UserDto userDto)
         {
             return await userService.RegisterUser(userDto);
         }

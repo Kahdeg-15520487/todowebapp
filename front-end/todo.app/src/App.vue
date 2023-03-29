@@ -3,6 +3,7 @@
     <login-form @login-success="loginSuccess" v-if="!isLogin"></login-form>
     <div v-if="isLogin">
       <a @click="logout" class="nav-item nav-link">Logout</a>
+      <label style="float: right;" v-bind:for="userInfo.username">{{this.userInfo.username}}</label>
       <to-do-list></to-do-list>
     </div>
   </div>

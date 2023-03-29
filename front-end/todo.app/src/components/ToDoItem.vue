@@ -63,7 +63,7 @@ export default {
       this.isEditing = true;
     },
     itemEdited(newLabel) {
-      this.$emit("item-edited", newLabel);
+      this.$emit("item-edited1", newLabel);
       this.isEditing = false;
       this.focusOnEditButton();
     },
